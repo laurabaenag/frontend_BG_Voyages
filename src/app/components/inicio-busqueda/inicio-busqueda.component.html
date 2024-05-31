@@ -1,0 +1,25 @@
+<body>
+
+    <app-header></app-header>
+
+    <main class="l-main">
+
+        <section class="home" id="home">
+            <div class="home_container tk_container tk-grid">
+                <div class="home_data">
+                    <h1 class="home_title">Viaja con nosotros</h1>
+                    <h2 class="home_subtitle">Vivirás experiencias <br>INCREÍBLES</h2>
+                </div>
+                <input (click)="formularioDestinoFecha()" type="radio" class="btn-check" name="btnDestinoFecha"
+                    id="porDestinoYFecha" autocomplete="off">
+                <label class="btn btn-danger" for="porDestinoYFecha">Buscar por destino y fecha</label>
+                <app-buscador-destino-fecha
+                    [mostrarBuscadorDYF]="formularioVisibleDestinoFecha"></app-buscador-destino-fecha>
+            </div>
+        </section>
+
+    </main>
+
+    <app-footer></app-footer>
+
+</body>

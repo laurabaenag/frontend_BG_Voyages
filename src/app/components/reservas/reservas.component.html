@@ -1,0 +1,30 @@
+<body>
+  <app-header></app-header>
+
+  <div class="container">
+    <h2>Reservar Actividad</h2>
+
+    <form (ngSubmit)="confirmarReserva()" #reservaForm="ngForm">
+      <div class="form-group">
+        <label for="personas">Número de Personas</label>
+        <input type="number" id="personas" name="personas" class="form-control" [(ngModel)]="reserva.personas" required
+          min="1" />
+      </div>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!reservaForm.form.valid">
+        Confirmar Reserva
+      </button>
+    </form>
+
+    <div *ngIf="actividades">
+      <h3>Detalles de la Actividad</h3>
+      <p>Nombre: {{ actividades.nombreActividad }}</p>
+      <p>Descripción: {{ actividades.descripcion }}</p>
+      <p>Destino: {{ actividades.destino.nombre }}</p>
+      <p>Fecha: {{ actividades.fechaActividad | date }}</p>
+      <p>Hora: {{ actividades.horaActividad }}</p>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</body>

@@ -1,0 +1,61 @@
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-align: center;
+}
+
+p,
+ul {
+  margin: 0;
+}
+
+.about_data {
+  text-align: center;
+  margin-bottom: 80px;
+  margin-top: 100px;
+}
+
+.about_description {
+  margin-bottom: 1.5rem;
+}
+
+.about_img {
+  width: 280px;
+  border-radius: 0.5rem;
+  justify-self: center;
+}
+
+input[type="submit"] {
+  background-color: #f05742;
+  color: white;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #dc7e71;
+}
+
+.button {
+  display: inline-block;
+  background-color: #f05742;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: #dc7e71;
+}
+
+app-footer {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box; /* Asegura que el relleno no aumente el tamaño total */
+}

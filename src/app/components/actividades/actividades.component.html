@@ -1,0 +1,72 @@
+<body>
+  <app-header></app-header>
+
+  <!-- BUSCADORES -->
+  <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+    <input (click)="formularioDestinoFecha()" type="radio" class="btn-check" name="btnDestinoFecha"
+      id="porDestinoYFecha" autocomplete="off">
+    <label class="btn btn-outline-danger" for="porDestinoYFecha">Buscar por destino y fecha</label>
+
+    <input (click)="formularioDestino()" type="radio" class="btn-check" name="btnDestino" id="porDestino"
+      autocomplete="off">
+    <label class="btn btn-outline-danger" for="porDestino">Buscar por destino</label>
+
+    <input (click)="formularioFecha()" type="radio" class="btn-check" name="btnFecha" id="porFecha" autocomplete="off">
+    <label class="btn btn-outline-danger" for="porFecha">Buscar por fecha</label>
+  </div>
+
+  <app-buscador-destino-fecha [mostrarBuscadorDYF]="formularioVisibleDestinoFecha"></app-buscador-destino-fecha>
+  <app-buscador-destino [mostrarBuscadorD]="formularioVisibleDestino"></app-buscador-destino>
+  <app-buscador-fecha [mostrarBuscadorF]="formularioVisibleFecha"></app-buscador-fecha>
+
+<!-- FORMULARIO CREAR Y ACTUALIZAR -->
+  <a *ngIf="isAdmin" class="btn btn-warning" id="btnCrear" (click)="mostrarFormularioActividad()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+  </svg> Nueva actividad</a>
+  <div *ngIf="formularioVisible" class="form-container">
+    <form (ngSubmit)="guardarActividad()" class="custom-form">
+        <input type="text" class="form-control" id="nombreActividad" [(ngModel)]="actividad.nombreActividad" name="nombreActividad" placeholder="Nombre Actividad" required>
+        <input type="text" class="form-control" id="descripcion" [(ngModel)]="actividad.descripcion" name="descripcion" placeholder="Descripción" required>
+        <input type="date" class="form-control" id="fechaActividad" [(ngModel)]="actividad.fechaActividad" name="fechaActividad" placeholder="Fecha Actividad" required>
+        <input type="time" class="form-control" id="horaActividad" [(ngModel)]="actividad.horaActividad" name="horaActividad" placeholder="Hora Actividad" required>
+        <label for="destino">Destino</label>
+        <select id="destino" class="form-control" [(ngModel)]="actividad.destino.id" name="destino" required>
+          <option *ngFor="let destino of destinos" [value]="destino.id">{{ destino.nombre_destino }}</option>
+        </select>
+        <input type="text" class="form-control" id="urlImagenActividad" [(ngModel)]="actividad.urlImagenActividad" name="urlImagenActividad" placeholder="URL Imagen" required>
+      <button type="submit" class="btn btn-primary">{{ isUpdating ? 'Actualizar' : 'Crear' }}</button>
+      <br>
+      <button type="button" class="btn btn-secondary" (click)="cancelarFormulario()">Cancelar</button>
+    </form>
+  </div>
+
+  <!-- ACTIIVIDADES -->
+  <div class="card-container">
+  <div class="row">
+    <div *ngIf="actividades && actividades.length > 0; else noActividades" class="col">
+      <div *ngFor="let actividad of actividades" class="card text-center">
+        <img src="../../assets/img/{{actividad.idActividad}}.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"> {{ actividad.nombreActividad }} </h5>
+          <p class="card-text"> {{ actividad.descripcion }} </p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> {{ actividad.destino.nombre }} </li>
+          <li class="list-group-item"> {{ actividad.fechaActividad }} </li>
+          <li class="list-group-item"> {{ actividad.horaActividad }} </li>
+        </ul>
+        <div class="card-body">
+          <a *ngIf="!isAdmin" class="btn btn-danger" (click)="mostrarFormularioReserva(actividad)">Reservar</a>
+          <a *ngIf="isAdmin" class="btn btn-warning" id="actualizarActividad" (click)="actualizarActividad(actividad)">Actualizar</a>
+          <a *ngIf="isAdmin" class="btn btn-danger" (click)="eliminarActividad(actividad)">Eliminar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <ng-template #noActividades>
+    <p>No hay actividades disponibles.</p>
+  </ng-template>
+  <app-footer></app-footer>
+</body>

@@ -1,0 +1,19 @@
+.custom-form {
+  border: 3px solid #a39b96;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.custom-form input,
+.custom-form input:last-of-type,
+.custom-form button {
+  margin-right: 10px;
+}
+
+button {
+  background-color: #a39b96;
+  color: white;
+  border: none;
+}

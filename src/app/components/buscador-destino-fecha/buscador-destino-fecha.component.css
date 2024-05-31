@@ -1,0 +1,14 @@
+
+.custom-form {
+    border: 3px solid #dc3545;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .custom-form input,
+  .custom-form input:last-of-type,
+  .custom-form button {
+    margin-right: 10px;
+  }

@@ -1,0 +1,16 @@
+<body>
+    <app-header></app-header>
+    <div class="container">
+        <form class="custom-form" (ngSubmit)="loginUsuario()" #loginForm="ngForm">
+            <h1>Inicio de sesión</h1>
+                <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+                <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Contraseña"
+                    required>
+                <button type="submit" class="btn btn-danger">Iniciar sesión</button>
+        </form>
+        <div *ngIf="errorMessage">
+            <p>{{ errorMessage }}</p>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</body>

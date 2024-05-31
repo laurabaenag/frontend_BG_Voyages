@@ -1,0 +1,44 @@
+<body>
+  <app-header></app-header>
+  <div id="espacio">
+    <a *ngIf="isAdmin" class="btn btn" id="btnCrearDest" (click)="mostrarFormularioDestino()"><svg
+        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill"
+        viewBox="0 0 16 16">
+        <path
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
+      </svg> Nuevo Destino</a>
+  </div>
+
+  <!-- FORMULARIO -->
+  <div *ngIf="formularioVisible" class="form-container">
+    <form class="custom-form" (ngSubmit)="guardarDestino()">
+      <input type="text" class="form-control" id="nombreDestino" [(ngModel)]="destino.nombre_destino"
+        name="nombreDestino" placeholder="Nombre" required>
+      <input type="text" class="form-control" id="provincia" [(ngModel)]="destino.provincia" name="provincia"
+        placeholder="Provincia" required>
+      <input type="text" class="form-control" id="pais" [(ngModel)]="destino.pais" name="pais" placeholder="Pais"
+        required>
+      <button type="submit" class="btn btn-danger">{{ isUpdating ? 'Actualizar' : 'Crear' }}</button>
+      <br>
+      <button type="button" class="btn btn-secondary" (click)="cancelarFormulario()">Cancelar</button>
+    </form>
+  </div>
+
+  <div class="card-container">
+    <div *ngFor="let destino of destinos" class="card text-center">
+      <div class="card-header">
+        {{ destino.nombre_destino }}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ destino.nombre_destino }}</h5>
+        <p class="card-text">Provincia: {{ destino.provincia }}</p>
+        <p class="card-text">País: {{ destino.pais }}</p>
+        <a *ngIf="!isAdmin" class="btn btn-danger" (click)="obtenerActividades(destino)">Ver Actividades</a>
+        <a *ngIf="isAdmin" class="btn btn" id="btnActualizarDest" (click)="actualizarDestino(destino)">Actualizar</a>
+        <a *ngIf="isAdmin" class="btn btn-danger" (click)="eliminarDestino(destino)">Eliminar</a>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</body>

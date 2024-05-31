@@ -1,0 +1,10 @@
+.container {
+    margin-top: 80px;
+  }
+  
+  app-footer {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el relleno no aumente el tamaño total */
+  }

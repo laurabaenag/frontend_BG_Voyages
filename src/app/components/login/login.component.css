@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+  }
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    margin-left: 60px;
+    margin-right: 20px;
+    margin-bottom: 80px;
+  }
+
+  .custom-form {
+    margin-top: 80px;
+    min-width: 300px;
+    max-width: 60%;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2rem 3rem;
+    margin: auto;
+    border-radius: 2.5rem;
+    background-color: #cdc6c2;
+    box-shadow: 13px 13px 20px #f6f0ec, -13px -13px 20px #ffffff;
+    color: black;
+    margin-top: 10rem;
+  }
+  .custom-form input {
+    display: block;
+    margin: 2rem 0;
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: none;
+    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8), inset 5px 5px 10px
+        rgba(0, 0, 0, 0.1);
+    border: 0 none;
+    background: #f6f0ec;
+  }
+  .custom-form button {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #a39b96;
+    width: 100%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+  }
+
+  /* app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 80px;
+  } */

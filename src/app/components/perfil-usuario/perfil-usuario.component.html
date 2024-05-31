@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div id="comoBody">
+    <div class="user-container" *ngIf="usuario"><h1>
+
+        <div>{{ usuario.nombre }}</div>
+        <div>{{ usuario.apellido }}</div>
+    </h1>
+        <hr>
+        <h5><strong>Email: </strong> {{ usuario.email }}</h5>
+        <a class="btn btn-danger" (click)="eliminarUsuario(usuario.id)">Eliminar</a>
+        <a class="btn btn-warning" id="actualizarUsuario" (click)="mostrarFormularioUsuario()">Actualizar</a>
+    </div>
+  </div>
+
+    <!-- FORMULARIO -->
+  <div *ngIf="formularioVisible" class="form-container">
+    <form class="custom-form" (ngSubmit)="actualizarUsuario()">
+      <input type="text" class="form-control" id="username" [(ngModel)]="usuarioForm.nombre"
+        name="username" placeholder="Nombre" required>
+      <input type="text" class="form-control" id="lastname" [(ngModel)]="usuarioForm.apellido" name="lastname"
+        placeholder="Apellido" required>
+      <input type="email" class="form-control" id="email" [(ngModel)]="usuarioForm.email" name="email" placeholder="Email"
+        required>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña"  value=""
+        required>
+      <button type="submit" class="btn btn-danger">Actualizar</button>
+      <br>
+      <button type="button" class="btn btn-secondary" (click)="cancelarFormulario()">Cancelar</button>
+    </form>
+  </div>
+
+<app-footer></app-footer>

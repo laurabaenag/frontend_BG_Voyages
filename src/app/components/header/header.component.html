@@ -1,0 +1,52 @@
+<header class="l-header" id="header">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a href="index.html" class="nav_logo">
+                <img src="./assets/img/logo.png" alt="Logo" class="nav_logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" routerLink="/inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/contacto">Contacta</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Servicios
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/destinos">Destinos</a></li>
+                            <li><a class="dropdown-item" (click)="obtenerAllActividades()">Actividades</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" *ngIf="!isLoggedIn(); else loggedInTemplate">
+                    <button class="btn btn-outline-danger" type="button" routerLink="/signup">Suscríbete</button>
+                </form>
+                <ng-template #loggedInTemplate>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="userDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ nombre }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" routerLink="/perfil">Mi perfil</a></li>
+                            <li *ngIf="isAdmin"><a class="dropdown-item" routerLink="/incidencias">Incidencias</a></li>
+                            <li *ngIf="!isAdmin"><a class="dropdown-item" routerLink="/detallesReserva">Mis Reservas</a></li>
+                            <li *ngIf="isAdmin"><a class="dropdown-item" routerLink="/usuarios">Usuarios</a></li>
+                            <li><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </nav>
+</header>

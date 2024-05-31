@@ -1,0 +1,15 @@
+body {
+  margin: 3rem 0 0 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.938rem;
+  background-color: #fbfefd;
+  color: #707070;
+  line-height: 1.6;
+}
+
+.l-main {
+  margin: 20px; /* Ajusta el margen según tus preferencias */
+  background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Fondo degradado */
+  padding: 20px; /* Añade espacio interno para evitar que el contenido esté pegado al borde */
+  margin-top: 80px;
+}

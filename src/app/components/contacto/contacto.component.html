@@ -1,0 +1,82 @@
+<body>
+
+    <app-header></app-header>
+
+    <main class="l-main">
+
+        <section class="contact section tk-container" id="contact">
+            <div class="contact_container tk-grid">
+                <div class="contact_data">
+                    <span class="section-subtitle contact_initial">Hablanos</span>
+                    <h2 class="section-title contact_initial">Contacto</h2>
+                    <p class="contact_description">LLamanos al 654 123 987 o comentanos tus dudas rellenando tus datos.
+                    </p>
+
+                    <div class="formulario">
+                        <form (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="Nombre">Nombre</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="Nombre" name="Nombre" placeholder="Tu nombre.." required
+                                        [(ngModel)]="mensaje.idUsuario.nombre">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="Apellidos">Apellidos</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="Apellidos" name="Apellidos" placeholder="Tus apellidos.."
+                                        required [(ngModel)]="mensaje.idUsuario.apellido">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="email">Correo electrónico</label>
+                                </div>
+                                <div class="col-75">
+                                    <input id="email" name="email" type="email"
+                                        placeholder="Escribe tu correo electrónico.." required
+                                        [(ngModel)]="mensaje.idUsuario.email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="phone">Teléfono</label>
+                                </div>
+                                <div class="col-75">
+                                    <input id="phone" name="phone" type="number" placeholder="Opcional"
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" [(ngModel)]="mensaje.telefono">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="dudas">Dudas</label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea id="dudas" name="dudas" placeholder="Comentanos tus dudas.."
+                                        style="height:200px" required [(ngModel)]="mensaje.mensaje"></textarea>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-check">
+                                <input type="checkbox" id="informacion" name="informacion" value="novedadesyofertas">
+                                <label for="informacion"> He leído y acepto las <a
+                                        routerLink="/normasPrivacidad">condiciones de
+                                        privacidad</a>.</label><br>
+                            </div>
+                            <div class="row">
+                                <button type="submit" class="btn btn-danger">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <app-footer></app-footer>
+
+</body>

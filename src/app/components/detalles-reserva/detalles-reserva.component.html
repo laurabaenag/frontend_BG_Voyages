@@ -1,0 +1,23 @@
+<!-- detalles-reserva.component.html -->
+<app-header></app-header>
+<div class="container">
+  <h2>Mis Reservas</h2>
+  <div *ngIf="reservas && reservas.length > 0; else noReservas">
+    <div *ngFor="let reserva of reservas" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ reserva.actividades.nombreActividad }}</h5>
+        <p class="card-text">Reserva de <u>{{ reserva.usuarios.nombre }}</u></p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Destino:</strong> {{ reserva.actividades.destino.nombre }}</li>
+          <li class="list-group-item"><strong>Fecha:</strong> {{ reserva.actividades.fechaActividad }}</li>
+          <li class="list-group-item"><strong>Hora:</strong> {{ reserva.actividades.horaActividad }}</li>
+        </ul>
+        <a class="btn btn-danger" (click)="eliminarReserva(reserva)">Eliminar</a>
+      </div>
+    </div>
+  </div>
+  <ng-template #noReservas>
+    <p>No tienes reservas.</p>
+  </ng-template>
+</div>
+<app-footer></app-footer>
