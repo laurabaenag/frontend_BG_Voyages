@@ -46,7 +46,6 @@ export class LoginComponent {
           icon: 'error',
           confirmButtonText: 'Ok',
         });
-        alert(this.errorMessage);
       }
     );
   }

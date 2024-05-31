@@ -56,6 +56,12 @@ export class ContactoComponent implements OnInit {
     this.mensaje.fechaEnvio = new Date().toISOString();
     this.service.saveMensaje(this.mensaje).subscribe(
       (response) => {
+        Swal.fire({
+          title: 'Éxito',
+          text: 'Mensaje enviado.',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
         console.log(this.mensaje);
       },
       (error) => {
@@ -63,7 +69,7 @@ export class ContactoComponent implements OnInit {
           title: 'Error',
           text: 'No se pudo eliminar.',
           icon: 'error',
-          confirmButtonText: 'Cool'
+          confirmButtonText: 'Ok'
         })
       }
     );

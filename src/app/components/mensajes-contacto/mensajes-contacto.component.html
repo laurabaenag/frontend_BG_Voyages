@@ -6,8 +6,8 @@
     <div *ngFor="let mensaje of mensajes" class="card">
       <div class="card-body">
         <h5 class="card-title">{{ mensaje.fechaEnvio }}</h5>
-        <p class="card-text">Mensaje de <u>{{ mensaje.idUsuario }}</u></p>
-        <p class="card-text">{{ mensaje.mensaje }}/p>
+        <p class="card-text">Mensaje de <u>{{ mensaje.idUsuario.nombre }}</u></p>
+        <p class="card-text">{{ mensaje.mensaje }}</p>
       </div>
     </div>
   </div>

@@ -14,6 +14,7 @@ import { BuscadorFechaComponent } from '../buscador-fecha/buscador-fecha.compone
 import { LoginService } from '../../servicios/login/login.service';
 import { FormsModule } from '@angular/forms';
 import { DetallesReservaService } from '../../servicios/detalles-reserva/detalles-reserva.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-detalles-reserva',
@@ -76,8 +77,20 @@ export class DetallesReservaComponent implements OnInit {
           this.reservas = this.reservas.filter(
             (d) => d.idReserva !== reserva.idReserva
           );
+          Swal.fire({
+            title: 'Éxito',
+            text: 'La reserva se eliminó correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+          });
         },
         (error) => {
+          Swal.fire({
+            title: 'Error',
+            text: 'Error eliminando reserva',
+            icon: 'error',
+            confirmButtonText: 'Ok',
+          });
           console.error('Error eliminando reserva', error);
           console.log(reserva);
         }
